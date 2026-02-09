@@ -1,29 +1,33 @@
 {
     "name": "ebethus/laravel-elastic-email-driver",
-    "description": "A Laravel Elastic Maling Driver",
-    "keywords": ["laravel", "email", "elastic email"],
+    "description": "A Laravel Elastic Email Driver",
+    "keywords": [
+        "laravel",
+        "email",
+        "elastic email"
+    ],
     "license": "MIT",
     "authors": [
         {
-            "company": "Artisan Pixelworks",
+            "name": "Artisan Pixelworks",
             "email": "obura@tongoi.com",
-            "url": "https://www.tongoi.com",
+            "homepage": "https://www.tongoi.com",
             "role": "Developer"
         },
         {
-            "company": "Tecnofalls",
+            "name": "Tecnofalls",
             "email": "alberroteran@gmail.com",
-            "url": "https://tecnofalls.com",
+            "homepage": "https://tecnofalls.com",
             "role": "Developer"
-        } 
+        }
     ],
     "support": {
         "email": "alberroteran@gmail.com"
     },
     "require": {
-        "laravel/framework": "9.x.x|10.x.x|11.x.x",
-        "guzzlehttp/guzzle": ">=7.0",
-        "symfony/mailer": "^7.0"
+        "laravel/framework": "^9.0|^10.0|^11.0|^12.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/mailer": "^6.0|^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -32,9 +36,9 @@
     },
     "extra": {
         "laravel": {
-        "providers": [
-            "Chocoholics\\LaravelElasticEmail\\ElasticServiceProvider"
-        ]
+            "providers": [
+                "Chocoholics\\LaravelElasticEmail\\ElasticServiceProvider"
+            ]
         }
     },
     "minimum-stability": "stable"
