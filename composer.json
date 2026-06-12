@@ -29,10 +29,16 @@
         "guzzlehttp/guzzle": "^7.0",
         "symfony/mailer": "^6.0|^7.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6|^10.5|^11.0"
+    },
     "autoload": {
         "psr-4": {
             "Chocoholics\\LaravelElasticEmail\\": "src/"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "extra": {
         "laravel": {

@@ -37,6 +37,13 @@ class ElasticTransport implements TransportInterface
     protected $account;
 
     /**
+     * Whether Elastic Email should treat the message as transactional.
+     *
+     * @var bool|int
+     */
+    protected $transactional;
+
+    /**
      * THe Elastic Email API end-point.
      *
      * @var string
@@ -95,6 +102,12 @@ class ElasticTransport implements TransportInterface
             $headers->remove('x-config-transactional');
         }
 
+        $postback = null;
+        if ($headers->has('x-elasticemail-postback')) {
+            $postback = (string) $headers->get('x-elasticemail-postback')->getValue();
+            $headers->remove('x-elasticemail-postback');
+        }
+
         $msgTo = array_reduce(
             $message->getTo(),
             function ($carry, $item) {
@@ -131,6 +144,10 @@ class ElasticTransport implements TransportInterface
             'bodyHtml' => $message->getHtmlBody(),
             'bodyText'       =>$message->getTextBody(),
         ];
+
+        if ($postback !== null && $postback !== '') {
+            $data['postback'] = $postback;
+        }
 
         $replyTo = $message->getReplyTo();
         if (!empty($replyTo)) {
